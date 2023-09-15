@@ -46,8 +46,8 @@ void FillArrayBySpiral(int[,] array)
         circleCount++;
 
     }
-    if (array.Length % 2 == 1)
-        array[array.GetLength(0) / 2, array.GetLength(0) / 2] = array.Length;
+    if (array.Length % 2 == 1 && array.GetLength(0) == array.GetLength(1))
+        array[array.GetLength(0) / 2, array.GetLength(1) / 2] = array.Length;
 }
 
 void Print2DArray(int[,] array)
@@ -65,8 +65,8 @@ void Print2DArray(int[,] array)
     }
 }
 
-int rows = InputNum("Введите размер квадратного массива: ");
+int side = InputNum("Введите размер квадратного массива: ");
 
-int[,] matrix = Create2DArray(rows, rows);
+int[,] matrix = Create2DArray(side, side);
 FillArrayBySpiral(matrix);
 Print2DArray(matrix);
